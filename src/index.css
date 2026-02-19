@@ -146,6 +146,31 @@ button:disabled {
   margin: 10px 0 0;
 }
 
+.merge-conflicts {
+  margin-top: 14px;
+  border-top: 1px solid #e1e6ef;
+  padding-top: 12px;
+}
+
+.merge-conflict-card {
+  border: 1px solid #d9e0ea;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fafcff;
+}
+
+.merge-conflict-title {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.merge-choice-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+}
+
 .panel-header {
   display: flex;
   align-items: center;

@@ -134,27 +134,6 @@ export default function App() {
     setTables(nextTables);
   };
 
-  const mergeTables = (importedTables: BossTable[]) => {
-    setTables((prev) => {
-      const usedIds = new Set(prev.map((table) => table.id));
-      const mergedImports = importedTables.map((table) => {
-        if (!usedIds.has(table.id)) {
-          usedIds.add(table.id);
-          return table;
-        }
-
-        let nextId = makeTableId();
-        while (usedIds.has(nextId)) {
-          nextId = makeTableId();
-        }
-        usedIds.add(nextId);
-        return { ...table, id: nextId };
-      });
-
-      return [...prev, ...mergedImports];
-    });
-  };
-
   const tableViews = useMemo(() => {
     return tables
       .map((table) => {
@@ -172,7 +151,7 @@ export default function App() {
         <p className="muted">All timestamps are displayed in your local timezone ({APP_TIME_ZONE}).</p>
       </header>
 
-      <BackupPanel tables={tables} onReplaceTables={replaceTables} onMergeTables={mergeTables} />
+      <BackupPanel tables={tables} onReplaceTables={replaceTables} />
 
       <CreateTableForm onAddTable={addTable} />
 
